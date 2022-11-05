@@ -1,11 +1,10 @@
-from fastapi import FastAPI, HTTPException ,status
+from fastapi import FastAPI, HTTPException, status
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 import requests
 from Recipe import Recipe
-from server_utils import remove_dairy_recipes, remove_gluten_recipes
-
+from server_utils import *
 from constants import RECIPES_URL
 
 
@@ -18,25 +17,28 @@ app.mount("/client/build", StaticFiles(directory="client/build"), name="static")
 def root():
     return FileResponse("./client/build/index.html")
 
+
 @app.get("/sanity")
 def sanity():
     return {
-        "status":"ok"
+        "status": "ok"
     }
 
-@app.get("/recipes",status_code=status.HTTP_200_OK)
-def recipes_by_ingredient(ingredient_name: str ,has_gluten:bool = False, has_diary:bool = False):
+
+@app.get("/recipes", status_code=status.HTTP_200_OK)
+def recipes_by_ingredient(ingredient_name: str, has_gluten: bool = False, has_diary: bool = False):
     try:
-         result = requests.get(RECIPES_URL,ingredient_name)
-         recipes_dto = result.json().get("results")
+        query = RECIPES_URL % ingredient_name
+        result = requests.get(query)
+        recipes_dto = result.json().get("results")
     except HTTPException as exception:
         return exception(status_code=404, detail="the ingredient name dosent exist")
 
     recipes = [Recipe(recipe) for recipe in recipes_dto]
     if has_gluten:
-        recipes = remove_gluten_recipes(recipes)
+        recipes = remove_recipes(recipes, table_name=GLUTEN)
     if has_diary:
-        recipes = remove_dairy_recipes(recipes)
+        recipes = remove_recipes(recipes, table_name=DIARY)
     return {"recipes": recipes}
 
 
