@@ -38,7 +38,7 @@
           <div class="post-input-container">
             
             <textarea
-              id="post-content"
+              id="content"
               rows="1"
               placeholder="what's on your mind ?"
             ></textarea>
@@ -51,7 +51,7 @@
             <button
               class="btn btn-outline-secondary"
               type="button"
-              id="post-button"
+              id="search-button"
             >
               Search
             </button>
@@ -65,6 +65,54 @@
       <p>Copyright 2022 Shalev Sharf</p>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script id="posts-template" type="text/x-handlebars-template">
+    {{#each posts}}
+
+    <div class="user-post">
+      <div class="post-header">
+      <div class="user-profile">
+      <img
+        class="recipe-img"
+        src={{this.thumbnail}}
+        width="70%"
+        height="300px"/>
+      <div>
+        <p>{{this.title}}</p>
+      </div>
+      </div>
+      <p clss="post-text">{{this.title}}</p>
+      </div>
+      <br />
+      </div>
+      <!-- ______________________ -->
+      <div class="comments-container">
+        {{#if this.ingredients.length}}
+          {{#each this.ingredients}}
+              <div class="user-profile">
+                <img src={{this.img}} alt="" />
+                <div>
+                  <p>{{this}}</p>
+                </div>
+              </div>
+              </div>
+          {{/each}}
+        {{/if}}
+    {{/each}}
+  </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
