@@ -1,0 +1,1 @@
+RECIPES_URL = "https://recipes-goodness.herokuapp.com/recipes/(%s)"

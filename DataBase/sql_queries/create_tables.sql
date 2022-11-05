@@ -1,5 +1,10 @@
--- CREATE DATABASE recipes_app;
-USE recipe_app;
-CREATE TABLE example(
-    id int NOT NULL PRIMARY KEY
-    );
+CREATE DATABASE IF NOT EXISTS recipes_app;
+
+USE recipes_app;
+CREATE TABLE IF NOT EXISTS dairy(
+    ingredient_name VARCHAR(50) NOT NULL PRIMARY KEY
+);
+
+CREATE TABLE IF NOT EXISTS gluten(
+    ingredient_name VARCHAR(50) NOT NULL PRIMARY KEY
+);
