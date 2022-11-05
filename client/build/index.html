@@ -79,38 +79,42 @@
 
 
   <script id="posts-template" type="text/x-handlebars-template">
-    {{#each posts}}
+    {{#each recipes}}
 
     <div class="user-post">
       <div class="post-header">
       <div class="user-profile">
       <img
         class="recipe-img"
-        src={{this.thumbnail}}
+        src= {{this.thumbnail}}
         width="70%"
         height="300px"/>
       <div>
-        <p>{{this.title}}</p>
+        <p clss="post-text">{{this.title}}</p>
       </div>
       </div>
-      <p clss="post-text">{{this.title}}</p>
-      </div>
+      <h6>insturctions</h6>
+      <p>{{this.href}}</p>
+    </div>
       <br />
-      </div>
+    </div>
+
       <!-- ______________________ -->
       <div class="comments-container">
+        <h4>ingredients</h4>
         {{#if this.ingredients.length}}
           {{#each this.ingredients}}
               <div class="user-profile">
-                <img src={{this.img}} alt="" />
                 <div>
                   <p>{{this}}</p>
                 </div>
               </div>
               </div>
+
           {{/each}}
         {{/if}}
     {{/each}}
+    <br> <br> <br> <br>
   </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
