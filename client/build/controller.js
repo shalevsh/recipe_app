@@ -9,3 +9,6 @@ $("#search-button").on("click", function () {
         view.render(result);
     });
 });
+$(".posts-container").on("click", ".recipe-img", function (e) {
+    alert("ingredient");
+});

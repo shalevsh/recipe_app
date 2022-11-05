@@ -109,18 +109,18 @@ img {
   color: #626262;
 }
 
-.user-profile {
+.recipe {
   display: flex;
   align-items: center;
 }
 
-.user-profile img {
+.recipe img {
   width: 100px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.user-profile p {
+.recipe p {
   margin-bottom: -5px;
   font-weight: 500;
   color: #626262;
@@ -167,7 +167,7 @@ img {
   margin: 20px 0;
 }
 
-.user-profile span {
+.recipe span {
   font-size: 13px;
   color: #9a9a9a;
 }
