@@ -1,0 +1,2 @@
+DIARY = "DIARY"
+GLUTEN = "GLUTEN"
