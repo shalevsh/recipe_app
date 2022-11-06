@@ -1,4 +1,3 @@
-(function(){
 const model: Model = new Model();
 const view: View = new View();
 
@@ -12,10 +11,3 @@ $("#search-button").on("click", function(){
 
 })
 
-$(".posts-container").on("click",".recipe-img",function (e) {
-     
-        alert("ingredient")
-
-})
-}
-)()
