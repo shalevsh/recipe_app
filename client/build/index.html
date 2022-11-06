@@ -88,7 +88,8 @@
         class="recipe-img"
         src= {{this.thumbnail}}
         width="70%"
-        height="300px"/>
+        onclick= "alert(`{{this.ingredients}}`.split(',')[0])"
+        />
       <div>
         <p clss="post-text">{{this.title}}</p>
       </div>

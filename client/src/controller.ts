@@ -1,3 +1,4 @@
+(function(){
 const model: Model = new Model();
 const view: View = new View();
 
@@ -16,3 +17,5 @@ $(".posts-container").on("click",".recipe-img",function (e) {
         alert("ingredient")
 
 })
+}
+)()
